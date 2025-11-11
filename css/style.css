@@ -471,6 +471,7 @@ p.lead {
   object-fit: cover; /* ← 中央を基準にトリミング */
   object-position: center; /* ← 写真の中央部分を優先表示 */
   filter: brightness(60%); /* 少し暗く */
+}
 
 /* ページネーション（ドット） */
 .swiper-pagination {
