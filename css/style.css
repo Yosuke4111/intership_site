@@ -345,3 +345,225 @@ p.en {
     color: #000;
     margin-bottom: 20px;
 }
+
+/* ==============================
+   スワイパー
+============================== */
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%); /* 数値を下げるほど暗く（70% = 少し暗め） */
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #000;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==============================
+   スマホ用レイアウト（768px以下）
+============================== */
+@media screen and (max-width: 768px) {
+
+/* ==============================
+   全体
+============================== */
+body {
+  font-size: 0.9rem;
+  background: #f8fafc; /* 全体を白系に戻す */
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+p.lead {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.container {
+  padding: 40px 16px;
+}
+
+/* ==============================
+   ヘッダー（ファーストビュー）
+============================== */
+.heading {
+  padding: 80px 16px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column; /* ボタン縦並び */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.btn-black,
+.btn-white {
+  width: 80%;
+  max-width: 300px;
+}
+
+/* ==============================
+   Swiper（スライダー）
+============================== */
+.swiper {
+ width: 100%;
+  height: 250px; /* ← スマホで固定高さに設定 */
+  background: #000; 
+  overflow: hidden; /* はみ出し防止 */
+}
+
+.swiper-slide {
+  background: transparent; /* ← 背景を透明化して黒帯防止 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ← 中央を基準にトリミング */
+  object-position: center; /* ← 写真の中央部分を優先表示 */
+  filter: brightness(60%); /* 少し暗く */
+
+/* ページネーション（ドット） */
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px; /* スライダー内下部に配置 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* ==============================
+   魚カード：3列→1列
+============================== */
+.fish-section .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.fish-card {
+  width: 100%;
+  padding: 16px 0;
+}
+
+.fish-image img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* ==============================
+   健康効果カード：横→縦
+============================== */
+.health-cards {
+  flex-direction: column;
+  align-items: center;
+}
+
+.health-card {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 16px;
+}
+
+/* ==============================
+   栄養表
+============================== */
+.nutrition-table {
+  width: 100%;
+  font-size: 0.85rem;
+  margin: 0 auto;
+}
+
+.nutrition-table th, 
+.nutrition-table td {
+  padding: 10px;
+}
+
+/* ==============================
+   レシピセクション
+============================== */
+.recipe {
+  padding: 60px 16px;
+  background: linear-gradient(to right, #010e14, #60b7e5);
+  text-align: center;
+}
+
+.recipe h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.recipe p.lead {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.btn-recipe {
+  width: 150px;
+  height: 42px;
+}
+
+/* ==============================
+   フッター
+============================== */
+.footer {
+  margin: 30px auto;
+  font-size: 0.8rem;
+}
+
+.footer svg {
+  width: 24px;
+  height: 24px;
+}
+}
