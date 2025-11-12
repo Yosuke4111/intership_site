@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title></title>
+    <title>日本の海の恵み</title>
     <link rel="icon" href="">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -17,7 +17,7 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="img/maguro.jpg" alt="マグロ"></div>
         <div class="swiper-slide"><img src="img/salmon.jpg" alt="サーモン"></div>
-        <div class="swiper-slide"><img src="img/saba.jpeg" alt="サバ"></div>
+        <div class="swiper-slide"><img src="img/saba.jpg" alt="サバ"></div>
         <div class="swiper-slide"><img src="img/tai.jpg" alt="タイ"></div>
         <div class="swiper-slide"><img src="img/aji.jpg" alt="アジ"></div>
         <div class="swiper-slide"><img src="img/iwashi.jpg" alt="イワシ"></div>
@@ -47,11 +47,17 @@
 <section class="fish-section">
     <h2>代表的な魚の種類</h2>
     <p class="lead">日本の食卓を彩る、栄養豊富な魚たちをご紹介します</p>
-    <div id="app">test: {{ fishlist[0].title }}</div>
+    <div id="app">
+    <!-- ↓ 追加 ↓ -->
+    <div class="category-nav">
+        <label> <input type="radio" v-model="category" value="Dog" />赤身</label>
+        <label> <input type="radio" v-model="category" value="Cat" /> 白身</label>
+    </div>
+    <!-- ↑ 追加 ↑ -->
     <div id="fish-erea" class="container">
         <article class="fish-card"Grid1 v-for="item in fishlist">
             <div class="fish-image">
-                {{ item.image }}
+                <img :src="item.image" :alt="item.name">
             </div>
             <div class="fish-content">
                 <div class="fish-header">
@@ -67,10 +73,10 @@
                     {{ item.habitat }}<br>
                     {{ item.season }}
                 </p>
-                
-
             </div>
         </article>
+
+        <!--
         <article class="fish-card"Grid2>
             <div class="fish-image">
                 <img src="img/fresh-salmon-fish-fillet.jpg" alt="サーモン">
@@ -168,6 +174,8 @@
                 </p>
             </div>
         </article>
+        -->
+
 </div>
 </section>
 
@@ -258,52 +266,64 @@
       ref(
       [
         {
+            "image": "img/fresh-tuna-fish-sashimi.jpg",
             "name": "マグロ",
             "english_name": "Thunnus",
             "description": "赤身魚の代表格。DHAやEPAが豊富で、脳の活性化や血流改善に効果的です。",
             "nutrition": ("高タンパク質", "DHA豊富","低脂肪"),
             "habitat": "生息地: 太平洋・大西洋の暖海域",
-            "season": "旬: 冬〜春",
+            "season": "旬: 冬〜春", 
+            "category": "赤身",
         },
         {
+            "image": "img/fresh-salmon-fish-fillet.jpg",
             "name": "サーモン",
             "english_name": "Salmon",
             "description": "良質なビタミンDを含む魚。抗酸化作用のあるアスタキサンチンを多く含みます。",
             "nutrition": ("オメガ3脂肪酸", "ビタミンD","アスタキサンチン"),
             "habitat": "生息地: 太平洋・大西洋の暖海域",
             "season": "旬: 秋〜冬",
+            "category": "白身",
         },
         {
+            "image": "img/fresh-mackerel-fish.jpg",
             "name": "サバ",
             "english_name": "Scomber",
             "description": "青魚の代表。血液をサラサラにするEPAが豊富に含まれています。",
             "nutrition": ("FPA豊富", "ビタミンB12","セレン"),
             "habitat": "生息地: 日本近海・太平洋",
             "season": "旬: 秋〜冬",
+            "category": "赤身",
         },
         {
+            "image": "img/fresh-sea-bream-tai-fish.jpg",
             "name": "タイ",
             "english_name": "Pagrus major",
             "description": "祝い事に欠かせない日本魚。淡白な味わいで高たんぱく低脂質です。",
             "nutrition": ("高タンパク", "ビタミンB1","低脂肪"),
             "habitat": "生息地: 日本近海",
             "season": "旬: 冬〜春",
+            "category": "白身",
         },
         {
+            "image": "img/fresh-horse-mackerel-aji-fish.jpg",
             "name": "アジ",
             "english_name": "Trachurus japonicus",
             "description": "日本の食卓に欠かせない定番魚。骨まで食べられるカルシウム源です。",
             "nutrition": ("カルシウム", "タウリン","ビタミンE"),
             "habitat": "生息地: 日本近海",
             "season": "旬: 夏〜秋",
+            "category": "赤身",
         },
         {
+            "image": "img/fresh-sardine-iwashi-fish.jpg",
             "name": "イワシ",
             "english_name": "Sardinops",
             "description": "小さくても栄養満点。カルシウムやDHAが豊富で成長期にもおすすめ。",
             "nutrition": ("カルシウム", "DHA","EPA"),
             "habitat": "生息地: 日本近海・太平洋",
             "season": "旬: 夏〜秋",
+            "category": "白身",
         }
     ]
       )
